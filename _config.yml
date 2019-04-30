@@ -1,0 +1,12 @@
+
+title: help
+
+exclude:
+  - node_modules
+  - src
+
+defaults:
+  - scope:
+      path: "assets/audio"
+    values:
+      audio: true
