@@ -20,7 +20,7 @@ export default {
     audioFiles: []
   }),
   mounted() {
-    fetch("../audio.json")
+    fetch("audio.json")
     .then(response => response.json())
     .then( (data) => {
       this.audioFiles = data;
