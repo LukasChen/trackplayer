@@ -1,8 +1,6 @@
 ---
 ---
-{% assign audio_files = site.static_files | where: 'audio','true' %}
-
-[
+{% assign audio_files = site.static_files | where: 'audio','true' %}[
   {% for audio in audio_files %}
   "{{audio.name}}"{% unless forloop.last %},{% endunless %}
   {% endfor %}

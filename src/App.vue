@@ -20,7 +20,7 @@ export default {
     audioFiles: []
   }),
   mounted() {
-    fetch("/assets/audio.json")
+    fetch("/trackplayer/assets/audio.json")
     .then(response => response.json())
     .then( (data) => {
       this.audioFiles = data;

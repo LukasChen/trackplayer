@@ -127,7 +127,7 @@ eval("/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  data : () => ({\r\n    message: 'hi',\r\n    search: '',\r\n    audioFiles: []\r\n  }),\r\n  mounted() {\r\n    fetch(\"/assets/audio.json\")\r\n    .then(response => response.json())\r\n    .then( (data) => {\r\n      this.audioFiles = data;\r\n      console.log(this.audioFiles);\r\n    });\r\n  },\r\n  computed: {\r\n    filteredFiles() {\r\n      return this.audioFiles.filter(audio => {\r\n        return audio.toLowerCase().includes(this.search.toLowerCase())\r\n      })\r\n    }\r\n  }\r\n});\r\n\r\n\n\n//# sourceURL=webpack:///./src/App.vue?./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n  data : () => ({\r\n    message: 'hi',\r\n    search: '',\r\n    audioFiles: []\r\n  }),\r\n  mounted() {\r\n    fetch(\"/trackplayer/assets/audio.json\")\r\n    .then(response => response.json())\r\n    .then( (data) => {\r\n      this.audioFiles = data;\r\n      console.log(this.audioFiles);\r\n    });\r\n  },\r\n  computed: {\r\n    filteredFiles() {\r\n      return this.audioFiles.filter(audio => {\r\n        return audio.toLowerCase().includes(this.search.toLowerCase())\r\n      })\r\n    }\r\n  }\r\n});\r\n\r\n\n\n//# sourceURL=webpack:///./src/App.vue?./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
