@@ -46,6 +46,7 @@
         </div>
       </div>
     </div>
+    <audio src="assets/001-U01-A.mp3" controls></audio>
   </div>
 </template>
 <script>
