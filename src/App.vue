@@ -13,7 +13,7 @@
           </div>
           <div class="col-7">
             <h4>Pick Exercise</h4>
-            <h4 lang="zh">选择习题</h4>
+            <h4 lang="zh">选择练习</h4>
           </div>
         </div>
       </div>
