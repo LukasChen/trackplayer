@@ -7,7 +7,7 @@
             <h1 class="call-to-action-number">1.</h1>
           </div>
           <div class="col-3">
-              <scroll-picker :drag-sensitivity="1" :options="options" v-model="number" />
+              <scroll-picker :touch-sensitivity="1" :drag-sensitivity="1" :options="options" v-model="number" />
           </div>
           <div class="col-7">
             <h4>Pick Exercise</h4>
