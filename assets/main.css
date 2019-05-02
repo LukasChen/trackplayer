@@ -5,6 +5,10 @@
   color: rgb(204, 149, 0);
 }
 
+.container {
+  max-width: 500px;
+}
+
 .vue-scroll-picker-layer > .top, .vue-scroll-picker-layer > .bottom {
   border-color: rgb(204, 149, 0) !important;
 }
@@ -31,5 +35,5 @@
 .section-background {
   background-image: url('images/cyanbackground.jpg');
   background-position: center center;
-  background-size: cover;
+  background-size: 100% 100%;
 }
