@@ -40,8 +40,9 @@
             <img class="img-fluid" style="height: 90px" src="assets/images/aj-audiopage-cartoon.jpg">
           </div>
         </div>
-        <div v-for="audio in filteredFiles" :key="audio.id">
-          <audio class="d-block" style="width: 100%"   :src="'assets/audio/' + audio.filename" controls></audio>
+        <div v-for="(audio, index) in filteredFiles" :key="audio.id">
+          <vuetify-audio :file="'assets/audio/' + audio.filename"></vuetify-audio>
+          <!-- <audio class="d-block" style="width: 100%"   :src="'assets/audio/' + audio.filename" controls></audio> -->
         </div>
       </div>
     </div>
@@ -49,21 +50,26 @@
 </template>
 <script>
 
+import VuetifyAudio from 'vuetify-audio';
+
 function arrayNumberRange(min,max) {
   let range = [];
-  for (let i = min; i < max; i++) {
-    range.push(i + 1);
+  for (let i = min; i < max + 1; i++) {
+    range.push(i);
   }
   return range;
 }
 
 export default {
   data : () => ({
-    options: arrayNumberRange(0,7),
+    options: arrayNumberRange(1,7),
     number: 1,
     search: '',
     audioFiles: []
   }),
+  components: {
+    'vuetify-audio': VuetifyAudio
+  },
   created() {
     fetch('/trackplayer/assets/audio.json')
     .then(response => response.json())
@@ -89,9 +95,7 @@ export default {
     playSound(index) {
       console.log(this.audioFiles[index]);
       var audio = new Audio(`assets/audio/${this.audioFiles[index].filename}`);
-      setTimeout(()=> {
-        audio.play();
-      },1000);
+      audio.play();
     }
   },
   computed: {
