@@ -42,11 +42,11 @@
         </div>
         <div v-for="(audio, index) in filteredFiles" :key="audio.id">
           <!-- <vuetify-audio :file="'assets/audio/' + audio.filename"></vuetify-audio> -->
-          <!-- <audio class="d-block" style="width: 100%"   :src="'assets/audio/' + audio.filename" controls></audio> -->
+          <audio class="d-block" style="width: 100%"   :src="'assets/audio/' + audio.filename" controls></audio>
         </div>
       </div>
     </div>
-    <audio src="assets/001-U01-A.mp3" controls></audio>
+    <!-- <audio src="assets/001-U01-A.mp3" controls></audio> -->
   </div>
 </template>
 <script>
