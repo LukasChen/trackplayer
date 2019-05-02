@@ -6,8 +6,10 @@
           <div class="col-2">
             <h1 class="call-to-action-number">1.</h1>
           </div>
-          <div class="col-3">
-              <scroll-picker :touch-sensitivity="0.5" :drag-sensitivity="1" :options="options" v-model="number" />
+          <div class="col-3" style="font-size: 15px">
+            <scroll-picker :touch-sensitivity="0.5" :drag-sensitivity="1" :options="options" v-model="number" />
+            <!-- <button @click="show = true">Picker</button> -->
+            <!-- <vue-pickers :show="show" :columns="1" :selectData="options" @confirm="confi" /> -->
           </div>
           <div class="col-7">
             <h4>Pick Exercise</h4>
@@ -16,20 +18,7 @@
         </div>
       </div>
     </div>
-    <!-- <div class="row mt-4">
-      <div class="col-sm-6 mb-4" v-for="audio in filteredFiles" :key="audio.id">
-        <div class="card shadow-sm">
-          <div class="card-body d-sm-flex justify-content-between">
-            <div>
-            <h5 class="card-title">ID: {{audio.id}}</h5>
-            <h6 class="card-subtitle">Unit: {{audio.unit}}<br> Lesson: {{audio.lesson}}</h6>
-            </div>
-            <audio :src="'assets/audio/' + audio.filename" :type="'audio/' + audio.extension" controls></audio>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <div class="feature-section call-to-action">
+    <div class="feature-section call-to-action section-background">
       <div class="container">
         <div class="row align-items-baseline">
           <div class="col-2">
@@ -37,10 +26,10 @@
           </div>
           <div class="col-10">
             <h4>Press Play / <span lang="zh">播放</span></h4>
-            <img class="img-fluid" style="height: 90px" src="assets/images/aj-audiopage-cartoon.jpg">
+            <img class="img-fluid" style="height: 90px" src="assets/images/aj-audiopage-cartoon.png">
           </div>
         </div>
-        <div v-for="(audio, index) in filteredFiles" :key="audio.id">
+        <div v-for="audio in filteredFiles" :key="audio.id">
           <!-- <vuetify-audio :file="'assets/audio/' + audio.filename"></vuetify-audio> -->
           <audio class="d-block" style="width: 100%"   :src="'assets/audio/' + audio.filename" controls></audio>
         </div>
@@ -52,6 +41,7 @@
 <script>
 
 // import VuetifyAudio from 'vuetify-audio';
+import vuePickers from 'vue-pickers'
 
 function arrayNumberRange(min,max) {
   let range = [];
@@ -64,10 +54,14 @@ function arrayNumberRange(min,max) {
 export default {
   data : () => ({
     options: arrayNumberRange(1,7),
-    number: 1,
+    number: 2,
     search: '',
+    show: false,
     audioFiles: []
   }),
+  components: {
+    vuePickers
+  },
   created() {
     fetch('/trackplayer/assets/audio.json')
     .then(response => response.json())
@@ -90,10 +84,9 @@ export default {
     });
   },
   methods: {
-    playSound(index) {
-      console.log(this.audioFiles[index]);
-      var audio = new Audio(`assets/audio/${this.audioFiles[index].filename}`);
-      audio.play();
+    confirmPick(val) {
+      this.show = false;
+      this.number = [val.select1.value];
     }
   },
   computed: {
