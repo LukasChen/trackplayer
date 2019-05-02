@@ -41,7 +41,7 @@
           </div>
         </div>
         <div v-for="(audio, index) in filteredFiles" :key="audio.id">
-          <vuetify-audio :file="'assets/audio/' + audio.filename"></vuetify-audio>
+          <!-- <vuetify-audio :file="'assets/audio/' + audio.filename"></vuetify-audio> -->
           <!-- <audio class="d-block" style="width: 100%"   :src="'assets/audio/' + audio.filename" controls></audio> -->
         </div>
       </div>
@@ -50,7 +50,7 @@
 </template>
 <script>
 
-import VuetifyAudio from 'vuetify-audio';
+// import VuetifyAudio from 'vuetify-audio';
 
 function arrayNumberRange(min,max) {
   let range = [];
@@ -67,9 +67,6 @@ export default {
     search: '',
     audioFiles: []
   }),
-  components: {
-    'vuetify-audio': VuetifyAudio
-  },
   created() {
     fetch('/trackplayer/assets/audio.json')
     .then(response => response.json())
