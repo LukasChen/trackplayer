@@ -1,12 +1,3 @@
-@font-face {
-  font-family: 'Noto Sans SC';
-  src: url('fonts/NotoSansSC-Regular.otf');
-}
-
-:lang(zh) {
-  font-family: 'Noto Sans SC', sans-serif;
-}
-
 .vue-scroll-picker {
   height: 5em !important;
   font-size: 1.5em;
