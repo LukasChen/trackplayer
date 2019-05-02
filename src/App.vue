@@ -26,7 +26,7 @@
           </div>
           <div class="col-10">
             <h4>Press Play / <span lang="zh">播放</span></h4>
-            <img class="img-fluid" style="height: 90px" src="assets/images/aj-audiopage-cartoon.png">
+            <img class="img-fluid mb-2" style="height: 90px" src="assets/images/aj-audiopage-cartoon.png">
           </div>
         </div>
         <div v-for="audio in filteredFiles" :key="audio.id">
@@ -39,10 +39,18 @@
     </div>
   </div>
 </template>
+<style>
+  .plyr--audio .plyr__controls {
+    background: #b6daee !important;
+  }
+  .plyr__volume {
+    display: none !important;
+  }
+</style>
 <script>
 
 // import VuetifyAudio from 'vuetify-audio';
-import vuePickers from 'vue-pickers'
+// import vuePickers from 'vue-pickers'
 
 function arrayNumberRange(min,max) {
   let range = [];
@@ -60,9 +68,6 @@ export default {
     show: false,
     audioFiles: []
   }),
-  components: {
-    vuePickers
-  },
   created() {
     fetch('/trackplayer/assets/audio.json')
     .then(response => response.json())
