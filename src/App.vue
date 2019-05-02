@@ -76,7 +76,8 @@ export default {
   computed: {
     filteredFiles() {
       return this.audioFiles.filter(audio => {
-        return audio.toLowerCase().includes(this.number);
+        const nameWoFileExtension = audio.split('.')[0];
+        return nameWoFileExtension == this.number;
       })
     }
   }
