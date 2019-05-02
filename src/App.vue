@@ -29,10 +29,10 @@
             <img class="img-fluid mb-2" style="height: 90px" src="assets/images/aj-audiopage-cartoon.png">
           </div>
         </div>
-        <div v-for="audio in filteredFiles" :key="audio.id">
+        <div v-for="audio in filteredFiles" :key="audio">
           <!-- <vuetify-audio :file="'assets/audio/' + audio.filename"></vuetify-audio> -->
           <vue-plyr>
-            <audio class="d-block" style="width: 100%"   :src="'assets/audio/' + audio.filename" controls></audio>
+            <audio class="d-block" style="width: 100%"   :src="'assets/audio/' + audio" controls></audio>
           </vue-plyr>
         </div>
       </div>
@@ -64,41 +64,19 @@ export default {
   data : () => ({
     options: arrayNumberRange(1,7),
     number: 2,
-    search: '',
-    show: false,
     audioFiles: []
   }),
   created() {
     fetch('/trackplayer/assets/audio.json')
     .then(response => response.json())
     .then( (data) => {
-      for (let audio of data) {
-        const splited = audio.split('-');
-        const id = splited[0];
-        const unit = splited[1];
-        const lesson = splited[2].split('.')[0];
-        const extension = splited[2].split('.')[1];
-        this.audioFiles.push({
-          filename: audio,
-          id,
-          unit,
-          lesson,
-          extension
-        });
-      }
-      console.log(this.audioFiles);
+      this.audioFiles = data;
     });
-  },
-  methods: {
-    confirmPick(val) {
-      this.show = false;
-      this.number = [val.select1.value];
-    }
   },
   computed: {
     filteredFiles() {
       return this.audioFiles.filter(audio => {
-        return audio.id.toLowerCase().includes(this.number)
+        return audio.toLowerCase().includes(this.number);
       })
     }
   }
