@@ -41,7 +41,8 @@
 </template>
 <style>
   .plyr--audio .plyr__controls {
-    background: #b6daee !important;
+    background: #d1ebf4 !important;
+    color: rgb(204, 149, 0) !important;
   }
   .plyr__volume {
     display: none !important;
