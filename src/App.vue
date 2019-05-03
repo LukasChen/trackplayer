@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="feature-section call-to-action container">
+    <div class="feature-section call-to-action">
         <div class="row align-items-center">
           <div class="col-2">
             <h1 class="call-to-action-number">1.</h1>
@@ -16,7 +16,7 @@
           </div>
         </div>
     </div>
-    <div class="feature-section call-to-action section-background container">
+    <div class="feature-section call-to-action section-background">
         <div class="row align-items-baseline">
           <div class="col-2">
             <h1 class="call-to-action-number">2.</h1>
@@ -37,8 +37,8 @@
 </template>
 <style>
   .plyr--audio .plyr__controls {
-    background: #d1ebf4 !important;
-    color: rgb(204, 149, 0) !important;
+    background: #B3E4FF !important;
+    color: #B36600!important;
   }
   .plyr__volume {
     display: none !important;

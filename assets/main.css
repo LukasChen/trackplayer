@@ -6,11 +6,11 @@
 }
 
 .container {
-  max-width: 500px;
+  max-width: 430px;
 }
 
 .vue-scroll-picker-layer > .top, .vue-scroll-picker-layer > .bottom {
-  border-color: rgb(204, 149, 0) !important;
+  border-color: #B36600 !important;
 }
 
 .jumbotron {
@@ -19,6 +19,7 @@
   padding-bottom: 0.7rem;
   border-radius: 0;
   color: #00a3ff;
+  background-color: #FFF;
 }
 
 .call-to-action-number {
@@ -27,13 +28,20 @@
 }
 
 .feature-section {
-  color: rgb(255, 176, 5);
+  color:#FF9200;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
 .section-background {
-  background-image: url('images/cyanbackground.jpg');
+  background-image: url('images/cyanbackground.png');
   background-position: center center;
   background-size: 100% 100%;
+}
+
+@media (min-width: 430px) {
+  .desktop-border {
+    border: #757575 solid 10px;
+    border-radius: 20px;
+  }
 }
