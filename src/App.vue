@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div class="feature-section call-to-action">
-      <div class="container">
+    <div class="feature-section call-to-action container">
         <div class="row align-items-center">
           <div class="col-2">
             <h1 class="call-to-action-number">1.</h1>
@@ -16,10 +15,8 @@
             <h4 lang="zh">选择练习</h4>
           </div>
         </div>
-      </div>
     </div>
-    <div class="feature-section call-to-action section-background">
-      <div class="container">
+    <div class="feature-section call-to-action section-background container">
         <div class="row align-items-baseline">
           <div class="col-2">
             <h1 class="call-to-action-number">2.</h1>
@@ -36,7 +33,6 @@
           </vue-plyr>
         </div>
       </div>
-    </div>
   </div>
 </template>
 <style>
