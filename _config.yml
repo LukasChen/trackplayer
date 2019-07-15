@@ -1,6 +1,6 @@
 
 title: help
-baseurl: /trackplayer
+baseurl: /audio2
 exclude:
   - node_modules
   - src

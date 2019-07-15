@@ -1,9 +1,12 @@
 'use strict'
 const { VueLoaderPlugin } = require('vue-loader');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/app.js',
   output: {
     path: path.resolve(__dirname,'assets'),
@@ -28,14 +31,26 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'vue-style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: './assets/',
+              hmr: process.env.NODE_ENV === 'development'
+            }
+          },
           'css-loader',
           'sass-loader'
         ]
       }
     ]
   },
+  optimization: {
+    minimizer: [new TerserPlugin({}),new OptimizeCSSAssetsPlugin({})]
+  },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'vue.min.css'
+    })
   ]
 }

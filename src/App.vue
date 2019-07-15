@@ -64,7 +64,7 @@ export default {
     audioFiles: []
   }),
   created() {
-    fetch('/trackplayer/assets/audio.json')
+    fetch('/audio2/assets/audio.json')
     .then(response => response.json())
     .then( (data) => {
       this.audioFiles = data;
